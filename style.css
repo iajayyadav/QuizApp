@@ -1,123 +1,294 @@
-/* Basic styling */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+ :root {
+     --bg: #071126;
+     --card: #0b1220;
+     --accent: #06b6d4;
+     --muted: #94a3b8;
+     --good: #10b981;
+     --bad: #ef4444
+ }
+
+ * {
+     box-sizing: border-box;
+     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans', sans-serif
+ }
+
+ body {
+     margin: 0;
+     background: linear-gradient(180deg, #04102a, #071026);
+     color: #e6eef6;
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 18px
+ }
+
+ .app {
+     width: 100%;
+     max-width: 1100px
+ }
+
+ header {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin-bottom: 16px
+ }
+
+ .logo {
+     width: 56px;
+     height: 56px;
+     border-radius: 12px;
+     background: linear-gradient(135deg, var(--accent), #6366f1);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-weight: 700
+ }
+
+ .card {
+     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+     padding: 18px;
+     border-radius: 12px;
+     box-shadow: 0 10px 40px rgba(2, 6, 23, 0.7)
+ }
+
+ .controls {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     flex-wrap: wrap;
+     margin-bottom: 12px
+ }
+
+ button {
+     background: transparent;
+     border: 2px solid rgba(84, 78, 78, 0.934);
+     font-weight: bold;
+     padding: 8px 12px;
+     border-radius: 8px;
+     color: inherit;
+     cursor: pointer
+ }
+
+ button.primary {
+     background: var(--accent);
+     color: #021124;
+     border: 0
+ }
+
+ .meta {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 12px
+ }
+
+ .question {
+     font-size: 18px;
+     margin-bottom: 10px
+ }
+
+ .options {
+     display: grid;
+     gap: 8px
+ }
+
+ .option {
+     background: rgba(255, 255, 255, 0.01);
+     padding: 10px;
+     border-radius: 8px;
+     border: 1px solid rgba(255, 255, 255, 0.03);
+     cursor: pointer
+ }
+
+ .option input {
+     margin-right: 10px
+ }
+
+ .footer {
+     /* display: flex; */
+     justify-content: space-between;
+     align-items: center;
+     margin-top: 14px
+ }
+  div.footer > div:nth-of-type(2){
+     /* display: flex; */
+     gap: 12px;
+     color: red;
+     align-items: center;
+     text-align: center;
+  }
+
+ .small {
+     font-size: 13px;
+     color: var(--muted)
+ }
+
+ .result {
+     margin-top: 18px;
+     padding: 12px;
+     border-radius: 10px;
+     background: linear-gradient(180deg, rgba(16, 185, 129, 0.08), rgba(6, 182, 212, 0.04));
+     color: var(--good)
+ }
+
+
+ /* Add this to the end of your style.css */
+
+.qbutton.correct {
+    background: rgba(16, 185, 129, 0.1); /* --good color with opacity */
+    border-color: var(--good);
+    color: var(--good);
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #001e4d;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+.qbutton.wrong {
+    background: rgba(239, 68, 68, 0.1); /* --bad color with opacity */
+    border-color: var(--bad);
+    color: var(--bad);
 }
 
-/* Main app container */
-.app {
-    background-color: #fff;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+
+ .hidden {
+     display: none
+ }
+
+ .timer {
+     font-weight: 700
+ }
+
+ .grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+     gap: 8px
+ }
+
+ .qnav {
+     display: flex;
+     gap: 6px;
+     flex-wrap: wrap
+ }
+
+ .qbutton {
+     padding: 6px;
+     border-radius: 6px;
+     border: 1px solid rgba(255, 255, 255, 0.03);
+     cursor: pointer;
+     background: transparent
+ }
+
+ .qbutton.answered {
+     border-color: var(--accent);
+     background: rgba(6, 182, 212, 0.06)
+ }
+
+ .section-pill {
+     padding: 6px 8px;
+     border-radius: 999px;
+     border: 1px solid rgba(255, 255, 255, 0.04);
+     font-size: 13px
+ }
+
+ footer.note {
+     margin-top: 12px;
+     text-align: center;
+     color: var(--muted);
+     font-size: 13px
+ }
+
+ @media (max-width:720px) {
+     .question {
+         font-size: 16px
+     }
+ }
+
+
+
+/* Add this to the end of your style.css */
+#certBtn {
+    display: none;
 }
 
-/* --- NEW: Header --- */
-.app .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+#liveScoreWrapper {
+    display: none;
 }
 
-.app h1 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #001e4d;
+
+
+
+
+
+
+ /* light mode */
+
+
+
+ /* Add this code to the end of your style.css 
+*/
+
+body.light-mode {
+    /* New light background */
+    background: linear-gradient(180deg, #f4f7fa, #e6eef6);
+    /* New light-mode text color */
+    color: #2a3341; 
 }
 
-/* --- NEW: Timer --- */
-#timer {
-    font-size: 18px;
-    font-weight: 600;
-    background-color: #001e4d;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
+body.light-mode .card {
+    background: #ffffff;
+    /* Add a border so the card is visible */
+    border: 1px solid #dbe2ea;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Quiz section */
-.quiz {
-    padding: 20px 0;
+/* Invert button colors for light mode */
+body.light-mode button {
+    background: #f0f5fa;
+    border-color: #dbe2ea;
+    color: #2a3341;
 }
 
-.quiz h2 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-/* Answer buttons */
-#answer-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.btn {
-    background-color: #fff;
-    color: #333;
-    font-weight: 500;
-    width: 100%;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    padding: 12px;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn:hover:not([disabled]) {
-    background-color: #f0f0f0;
-    border-color: #888;
-}
-
-.btn:disabled {
-    cursor: no-drop;
-}
-
-/* Feedback classes */
-.btn.correct {
-    background-color: #9aeabc;
-    color: #000;
-    border-color: #2e8b57;
-}
-
-.btn.incorrect {
-    background-color: #ff9393;
-    color: #000;
-    border-color: #a52a2a;
-}
-
-/* Next button */
-#next-btn {
-    background-color: #001e4d;
-    color: #fff;
-    font-weight: 500;
-    width: 150px;
+/* Make sure the primary button stays accented */
+body.light-mode button.primary {
+    background: var(--accent);
+    color: #021124;
     border: 0;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 20px auto 0;
-    display: none; /* Hidden by default */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-#next-btn:hover {
-    background-color: #003366;
+/* Adjust input/select fields */
+body.light-mode input,
+body.light-mode select,
+body.light-mode input[type=number] {
+    background: #ffffff;
+    border-color: #dbe2ea;
+    color: #2a3341;
+}
+
+/* Adjust nav buttons */
+body.light-mode .qbutton {
+    background: #f0f5fa;
+    border-color: #dbe2ea;
+}
+
+body.light-mode .qbutton.answered {
+    border-color: var(--accent);
+    /* This semi-transparent background works for both modes */
+    background: rgba(6, 182, 212, 0.06); 
+}
+
+/* Adjust question options */
+body.light-mode .option {
+    background: #f9fcff;
+    border-color: #eaf1f8;
+}
+
+/* Adjust result/review colors */
+body.light-mode .qbutton.correct {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--good);
+}
+
+body.light-mode .qbutton.wrong {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--bad);
 }

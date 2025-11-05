@@ -3,36 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CCC Mock Test — Secret of Stories</title>
-  <style>
-    :root{--bg:#071126;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8;--good:#10b981;--bad:#ef4444}
-    *{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans',sans-serif}
-    body{margin:0;background:linear-gradient(180deg,#04102a,#071026);color:#e6eef6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
-    .app{width:100%;max-width:1100px}
-    header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6366f1);display:flex;align-items:center;justify-content:center;font-weight:700}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:0 10px 40px rgba(2,6,23,0.7)}
-    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-    button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:inherit;cursor:pointer}
-    button.primary{background:var(--accent);color:#021124;border:0}
-    .meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-    .question{font-size:18px;margin-bottom:10px}
-    .options{display:grid;gap:8px}
-    .option{background:rgba(255,255,255,0.01);padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);cursor:pointer}
-    .option input{margin-right:10px}
-    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
-    .small{font-size:13px;color:var(--muted)}
-    .result{margin-top:18px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(16,185,129,0.08),rgba(6,182,212,0.04));color:var(--good)}
-    .hidden{display:none}
-    .timer{font-weight:700}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
-    .qnav{display:flex;gap:6px;flex-wrap:wrap}
-    .qbutton{padding:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.03);cursor:pointer;background:transparent}
-    .qbutton.answered{border-color:var(--accent);background:rgba(6,182,212,0.06)}
-    .section-pill{padding:6px 8px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);font-size:13px}
-    footer.note{margin-top:12px;text-align:center;color:var(--muted);font-size:13px}
-    @media (max-width:720px){.question{font-size:16px}}
-  </style>
+  <title>CCC Mock Test </title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="app">
@@ -42,22 +14,26 @@
         <h2 style="margin:0">CCC Mock Test</h2>
         <div class="small">हिंदी — पूरा पैटर्न (कस्टमाइज़ेबल)</div>
       </div>
+      <button id="themeToggle" style="margin-left: auto; padding: 10px;">☀️ Light Mode</button>
     </header>
 
     <div class="card">
       <div class="controls">
-        <button id="startBtn" class="primary">मॉक टेस्ट शुरू करें</button>
+        <button id="startBtn" class="primary">टेस्ट शुरू करें</button>
         <button id="pauseBtn">रोकें/शुरू करें</button>
+        
         <button id="resetBtn">रीसेट</button>
+        
         <label class="small" style="margin-left:8px">समय (मिनट)</label>
         <input id="timeInput" type="number" value="90" style="width:80px;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"/>
+        
         <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
           <select id="qCountSelect" style="padding:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit">
             <option value="25">25 प्रश्न</option>
             <option value="50">50 प्रश्न</option>
             <option value="100" selected>100 प्रश्न</option>
           </select>
-          <button id="generateBtn">नया पेपर बनाएं</button>
+         
         </div>
       </div>
 
@@ -79,12 +55,14 @@
           <div style="display:flex;gap:8px">
             <button id="prevBtn">पिछला</button>
             <button id="nextBtn">अगला</button>
-            <button id="markBtn">मार्क फॉर रिव्यू</button>
+            
+            <button id="markBtn">मार्क रिव्यू</button>
             <button id="submitBtn" class="primary">सबमिट करें</button>
           </div>
-          <div style="text-align:right">
+         
+          <div >
             <div class="small">Answered: <span id="answeredCount">0</span></div>
-            <div class="small">Score (Now): <span id="scoreNow">0</span></div>
+            <div class="small" id="liveScoreWrapper">Score (Now): <span id="scoreNow">0</span></div>
           </div>
         </div>
 
@@ -92,11 +70,12 @@
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
           <div>
             <div class="small">प्रश्न नेविगेशन:</div>
+            <br>
             <div class="qnav" id="qnav"></div>
           </div>
           <div style="display:flex;gap:8px">
-            <button id="reviewBtn">पूरा रिव्यू</button>
-            <button id="downloadBtn">रिजल्ट डाउनलोड (CSV)</button>
+            
+            
             <button id="certBtn">सर्टिफिकेट देखें</button>
           </div>
         </div>
@@ -111,226 +90,18 @@
           <li>टाइमर सेट करें और <strong>"मॉक टेस्ट शुरू करें"</strong> ⤴ दबाएँ।</li>
           <li>सबमिट करने पर स्कोर, प्रतिशत और विस्तृत रिव्यू मिलेगा।</li>
         </ul>
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <button id="sampleBtn">Sample Questions देखें</button>
-          <button id="editBank">प्रश्न एडिट करें</button>
-        </div>
+       
       </div>
 
     </div>
 
-    <footer class="note">मुझे बताइए— क्या आप चाहते हैं कि मैं यह फ़ाइल 1-click में डाउनलोड के लिए भी बना दूँ?</footer>
+    <footer class="note"></footer>
   </div>
+  <script src="questions.js"></script>
+<script src="script.js"></script>
 
   <script>
-    // बड़े प्रश्न बैंक (Hindi) — 100 प्रश्न नमूना (कठिनाई मिश्रित)
-    const MASTER_BANK = [
-      {q:"कंप्यूटर क्या है?",options:["एक इलेक्ट्रॉनिक डिवाइस","एक प्रोग्रामिंग भाषा","एक ऑपरेटिंग सिस्टम","एक नेटवर्क"],answer:0,topic:'Fundamentals'},
-      {q:"CPU का पूरा नाम क्या है?",options:["Central Processing Unit","Central Program Unit","Computer Processing Unit","Central Performance Unit"],answer:0,topic:'Fundamentals'},
-      {q:"1 बाइट में कितने बिट होते हैं?",options:["4","8","16","32"],answer:1,topic:'Fundamentals'},
-      {q:"GUI का पूरा नाम क्या है?",options:["Graphical User Interface","General User Input","Graphical Utility Interface","Global User Interface"],answer:0,topic:'OS'},
-      {q:"Windows में Recycle Bin का क्या कार्य है?",options:["फाइलें स्थायी रूप से हटाना","डिलीट की गई फाइलों को अस्थायी रखना","फाइलों को कंप्रेस करना","फाइलें छुपाना"],answer:1,topic:'OS'},
-      {q:"LibreOffice Writer की फाइल एक्सटेंशन क्या है?",options:[".docx",".odt",".pdf",".txt"],answer:1,topic:'Writer'},
-      {q:"Mail Merge का उपयोग किसलिए किया जाता है?",options:["एक ही पत्र कई लोगों को भेजने के लिए","फाइल सेव करने के लिए","स्लाइड बनाने के लिए","इमेज एडिट करने के लिए"],answer:0,topic:'Writer'},
-      {q:"Bold का शॉर्टकट क्या है?",options:["Ctrl+B","Ctrl+I","Ctrl+U","Ctrl+S"],answer:0,topic:'Writer'},
-      {q:"LibreOffice Calc की फाइल एक्सटेंशन क्या है?",options:[".xls",".ods",".csv",".xlsx"],answer:1,topic:'Calc'},
-      {q:"SUM फंक्शन क्या करता है?",options:["संख्याओं का जोड़","औसत निकालता है","अधिकतम चुनता है","गणना करता है"],answer:0,topic:'Calc'},
-      {q:"Average फंक्शन का प्रयोग कैसे होता है?",options:["=SUM(...)","=AVERAGE(...)","=MAX(...)","=MIN(...)"],answer:1,topic:'Calc'},
-      {q:"LibreOffice Impress की फाइल एक्सटेंशन क्या है?",options:[".odp",".pptx",".impress",".pps"],answer:0,topic:'Impress'},
-      {q:"Transition और Animation में क्या अंतर है?",options:["दोनों एक ही हैं","Transition स्लाइड बदलना, Animation ऑब्जेक्ट मूवमेंट","Animation स्लाइड बदलना, Transition ऑब्जेक्ट मूवमेंट","दोनों स्लाइड शो सेव करते हैं"],answer:1,topic:'Impress'},
-      {q:"URL का पूरा नाम क्या है?",options:["Uniform Resource Locator","Universal Resource Link","Uniform Research Locator","Universal Reference Link"],answer:0,topic:'Internet'},
-      {q:"HTTP और HTTPS में क्या अंतर है?",options:["HTTPS सुरक्षित है","HTTP सुरक्षित है","दोनों समान हैं","HTTPS धीमा होता है"],answer:0,topic:'Internet'},
-      {q:"IP Address किसका पता देती है?",options:["कंप्यूटर की पहचान","साइट का नाम","डोमेन का नाम","ब्राउजर की पहचान"],answer:0,topic:'Internet'},
-      {q:"Email में CC और BCC में क्या अंतर है?",options:["दोनों एक ही हैं","BCC में अन्य लोग छिपे रहते हैं","CC छिपाता है, BCC दिखाता है","BCC सभी को मेल भेजता है"],answer:1,topic:'Email'},
-      {q:"UPI का पूरा नाम क्या है?",options:["Unified Payments Interface","Universal Payments Integration","United Payment Interface","Universal Payment Index"],answer:0,topic:'Payments'},
-      {q:"NEFT किसके लिए उपयोग होता है?",options:["इलेक्ट्रॉनिक फंड ट्रांसफर","ईमेल भेजने के लिए","फाइल शेयर करने के लिए","नेटवर्क कनेक्ट करने के लिए"],answer:0,topic:'Payments'},
-      {q:"IMPS का पूरा नाम क्या है?",options:["Immediate Payment Service","Instant Payment System","Immediate Payment System","Internal Money Payment Service"],answer:0,topic:'Payments'},
-      {q:"Virus और Worm में क्या अंतर है?",options:["Virus स्वयं फैलता है, Worm नहीं","Worm स्वयं फैलता है, Virus नहीं","दोनों एक ही हैं","Virus हार्डवेयर है"],answer:1,topic:'Security'},
-      {q:"Antivirus का कार्य क्या है?",options:["वायरस से सुरक्षा","सिस्टम को तेज करना","फोटो एडिट करना","नेटवर्क को बन्द करना"],answer:0,topic:'Security'},
-      {q:"Firewall का उपयोग किसलिए होता है?",options:["नेटवर्क सुरक्षा के लिए","प्रिंटर सेट करने के लिए","फाइल कंप्रेसन के लिए","स्क्रीन रिकॉर्ड करने के लिए"],answer:0,topic:'Security'},
-      {q:"Phishing क्या है?",options:["फर्जी ईमेल के जरिए जानकारी चुराना","गैरकानूनी सॉफ्टवेयर बनाना","डेटा बैकअप लेना","फाइल डिलीट करना"],answer:0,topic:'Security'},
-      {q:"OTP का पूरा नाम क्या है?",options:["One-Time Password","One-Time Pass","One-Time Pin","Only-Temporary Password"],answer:0,topic:'Security'},
-      {q:"Search Engine का उदाहरण कौन सा है?",options:["Google","Windows","LibreOffice","Gmail"],answer:0,topic:'Internet'},
-      {q:"Web Browser क्या है?",options:["इंटरनेट एक्सेस करने का सॉफ्टवेयर","एक ईमेल सर्वर","डेटाबेस","कंप्यूटर हार्डवेयर"],answer:0,topic:'Internet'},
-      {q:"PDF का फुल फॉर्म क्या है?",options:["Portable Document Format","Public Document Format","Private Document Format","Printable Document Format"],answer:0,topic:'Files'},
-      {q:"Cloud Storage का क्या अर्थ है?",options:["ऑनलाइन डेटा स्टोरेज","हार्ड डिस्क","प्रिंटर","वीडियो एडिटिंग"],answer:0,topic:'Internet'},
-      {q:"MS-Word में Save का शॉर्टकट क्या है?",options:["Ctrl+S","Ctrl+P","Ctrl+V","Ctrl+Z"],answer:0,topic:'Writer'},
-      {q:"Copy का शॉर्टकट क्या है?",options:["Ctrl+C","Ctrl+X","Ctrl+V","Ctrl+A"],answer:0,topic:'Shortcuts'},
-      {q:"Cut का शॉर्टकट क्या है?",options:["Ctrl+X","Ctrl+C","Ctrl+V","Ctrl+Z"],answer:0,topic:'Shortcuts'},
-      {q:"Paste का शॉर्टकट क्या है?",options:["Ctrl+V","Ctrl+C","Ctrl+X","Ctrl+S"],answer:0,topic:'Shortcuts'},
-      {q:"Select All का शॉर्टकट क्या है?",options:["Ctrl+A","Ctrl+S","Ctrl+P","Ctrl+F"],answer:0,topic:'Shortcuts'},
-      {q:"Find का शॉर्टकट क्या है?",options:["Ctrl+F","Ctrl+H","Ctrl+G","Ctrl+R"],answer:0,topic:'Shortcuts'},
-      {q:"Spreadsheet में Row और Column किस तरह दिखते हैं?",options:["Rows संख्या, Columns अक्षर","Rows अक्षर, Columns संख्या","दोनों अक्षर","दोनों संख्या"],answer:0,topic:'Calc'},
-      {q:"Cell का Address कैसे दिखता है?",options:["A1","1A","R1C1","Cell1"],answer:0,topic:'Calc'},
-      {q:"Chart insert करने के लिए कौन सा टूल उपयोग होता है?",options:["Insert > Chart","File > Save","Edit > Copy","View > Zoom"],answer:0,topic:'Calc'},
-      {q:"Presentation में नई स्लाइड जोड़ने का शॉर्टकट क्या है?",options:["Ctrl+M","Ctrl+N","Ctrl+S","Ctrl+P"],answer:0,topic:'Impress'},
-      {q:"PDF में Password protection के लिए कौन सा तरीका उपयोगी है?",options:["Encrypt और Password सेट करना","File को Rename करना","Copy-Paste रोकना","File को Delete करना"],answer:0,topic:'Files'},
-      {q:"HTML का पूरा नाम क्या है?",options:["HyperText Markup Language","Hyperlink Text Markup Language","Hyper Transfer Markup Language","HyperText Making Language"],answer:0,topic:'Web'},
-      {q:"URL में 'www' का अर्थ क्या है?",options:["World Wide Web","Web Wide World","Worldwide Website","Web Window"],answer:0,topic:'Web'},
-      {q:"Social Media का एक उदहारण क्या है?",options:["Facebook","LibreOffice","Windows","GCC"],answer:0,topic:'Social'},
-      {q:"Cloud computing का एक लाभ क्या है?",options:["ऑनलाइन डेटा एक्सेस","डिवाइस की मरम्मत","ऑफलाइन गेमिंग","कंप्यूटर की चाल धीमी करना"],answer:0,topic:'Internet'},
-      {q:"Cookie क्या होती है?",options:["ब्राउज़र में छोटी फाइल जो जानकारी रखती है","एक प्रकार का वायरस","एक हार्डवेयर पार्ट","एक ईमेल"],answer:0,topic:'Web'},
-      {q:"URL में https:// का S किस लिए है?",options:["Secure","Simple","Server","Search"],answer:0,topic:'Web'},
-      {q:"Spreadsheet में =SUM(A1:A5) क्या करेगा?",options:["A1 से A5 जोड़ देगा","A1 से A5 का औसत निकालेगा","A1 से A5 में अधिकतम निकालेगा","कुछ नहीं करेगा"],answer:0,topic:'Calc'},
-      {q:"Computer memory में RAM किसके लिए है?",options:["Random Access Memory","Read Always Memory","Rapid Access Memory","Read Access Memory"],answer:0,topic:'Fundamentals'},
-      {q:"ROM किसके लिए है?",options:["Read Only Memory","Random Only Memory","Rapid Only Memory","Read On Memory"],answer:0,topic:'Fundamentals'},
-      {q:"Operating System का उदाहरण कौन सा है?",options:["Windows","MS Word","LibreOffice","Google"],answer:0,topic:'OS'},
-      {q:"Domain Name किस चीज़ का हिस्सा है?",options:["URL","File Name","Email Body","Folder Name"],answer:0,topic:'Web'},
-      {q:"Email में Attachment जोड़ने का उद्देश्य क्या है?",options:["फाइल भेजना","मेल डिलीट करना","मेल का रंग बदलना","मेल को सुरक्षित करना"],answer:0,topic:'Email'},
-      {q:"Captcha का प्रयोग किस लिए किया जाता है?",options:["बॉट्स से बचाने के लिए","ईमेल भेजने के लिए","फाइल सेव करने के लिए","नेटवर्क कनेक्ट करने के लिए"],answer:0,topic:'Security'},
-      {q:"Search engine optimization (SEO) किसके लिए उपयोग किया जाता है?",options:["वेबसाइट की रैंकिंग बढ़ाने के लिए","फाइल कंप्रेस करने के लिए","डेटा एन्क्रिप्ट करने के लिए","पासवर्ड बनाना"],answer:0,topic:'Web'},
-      {q:"Bluetooth किसके लिए उपयोग होता है?",options:["वायरलेस डेटा ट्रांसफर के लिए","इंटरनेट ब्राउज़ करने के लिए","फाइल एडिट करने के लिए","प्रिंट करने के लिए"],answer:0,topic:'Connectivity'},
-      {q:"Wi-Fi का उपयोग क्या है?",options:["वायरलेस इंटरनेट कनेक्शन के लिए","ब्राउज़र खोलने के लिए","फोटो एडिट करने के लिए","डाउनलोड मैनेजर"],answer:0,topic:'Connectivity'},
-      {q:"Hotspot क्या है?",options:["मोबाइल डिवाइस से इंटरनेट शेयर करना","क्विक स्टोर","एक प्रकार का वायरस","कंप्यूटर स्क्रीन"],answer:0,topic:'Connectivity'},
-      {q:"Spreadsheet में cell format बदलने के लिए कौन सा विकल्प है?",options:["Format > Cells","File > Save","Edit > Undo","View > Toolbars"],answer:0,topic:'Calc'},
-      {q:"Write-protect का अर्थ क्या है?",options:["फाइल/डिवाइस को लिखने से रोकना","फाइल को डिलीट करना","फाइल को खोलना","फाइल को शेयर करना"],answer:0,topic:'Files'},
-      {q:"Digital signature किस लिए उपयोग होती है?",options:["दस्तावेज की प्रामाणिकता की पुष्टि करने के लिए","फाइल को कंप्रेस करने के लिए","फोटो एडिट करने के लिए","फोल्डर बनाना"],answer:0,topic:'Security'},
-      {q:"HTML फाइल को किस एक्सटेंशन से सेव करते हैं?",options:[".html",".doc",".xls",".ppt"],answer:0,topic:'Web'},
-      {q:"Search bar में 'site:' ऑपरेटर किसलिए उपयोग होता है?",options:["किसी विशेष साइट के अंदर खोजने के लिए","साइट बनाना","फाइल अपलोड करने के लिए","ईमेल भेजने के लिए"],answer:0,topic:'Web'},
-      {q:"Two-factor authentication का मतलब क्या है?",options:["दो चरणों में पहचान प्रक्रिया","दो बार पासवर्ड डालना","दोहरे-मेल भेजना","दो कंप्यूटर जोड़ना"],answer:0,topic:'Security'},
-      {q:"URL में port नंबर किस तरह डाला जाता है?",options:["https://example.com:8080","https://8080.example.com","https://example.com/8080","https://example:8080.com"],answer:0,topic:'Web'},
-      {q:"Email में subject किस लिए उपयोग होता है?",options:["मेल का विषय दिखाने के लिए","मेल बॉडी लिखने के लिए","मेल भेजने के लिए","मेल बंद करने के लिए"],answer:0,topic:'Email'},
-      {q:"Spreadsheet में filter का उपयोग क्यों करते हैं?",options:["डेटा को छाँटने/फिल्टर करने के लिए","चार्ट बनाने के लिए","फाइल सेव करने के लिए","प्रिंट करने के लिए"],answer:0,topic:'Calc'},
-      {q:"Operating system boot होने पर कौन सा component शुरू होता है?",options:["Kernel","MS Word","Browser","Antivirus"],answer:0,topic:'OS'},
-      {q:"PDF फाइल खोलने के लिए सामान्य सॉफ़्टवेयर कौन सा है?",options:["Adobe Reader","MS Excel","Notepad","VLC"],answer:0,topic:'Files'}
-    ];
 
-    // state
-    let questions = [];
-    let userAnswers = [];
-    let current = 0;
-    let timerInterval = null;
-    let remainingSecs = 0;
-    let marked = new Set();
-
-    // elements
-    const startBtn = document.getElementById('startBtn');
-    const pauseBtn = document.getElementById('pauseBtn');
-    const resetBtn = document.getElementById('resetBtn');
-    const quizArea = document.getElementById('quizArea');
-    const introArea = document.getElementById('introArea');
-    const qIndex = document.getElementById('qIndex');
-    const qTotal = document.getElementById('qTotal');
-    const questionText = document.getElementById('questionText');
-    const optionsList = document.getElementById('optionsList');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const markBtn = document.getElementById('markBtn');
-    const submitBtn = document.getElementById('submitBtn');
-    const scoreNow = document.getElementById('scoreNow');
-    const qnav = document.getElementById('qnav');
-    const resultArea = document.getElementById('resultArea');
-    const reviewBtn = document.getElementById('reviewBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const certBtn = document.getElementById('certBtn');
-    const timerEl = document.getElementById('timer');
-    const timeInput = document.getElementById('timeInput');
-    const qCountSelect = document.getElementById('qCountSelect');
-    const generateBtn = document.getElementById('generateBtn');
-    const sampleBtn = document.getElementById('sampleBtn');
-    const editBank = document.getElementById('editBank');
-    const sectionName = document.getElementById('sectionName');
-    const answeredCountEl = document.getElementById('answeredCount');
-
-    function buildPaper(count){
-      // shuffle master
-      const pool = [...MASTER_BANK];
-      for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
-      questions = pool.slice(0, Math.min(count,pool.length));
-      userAnswers = new Array(questions.length).fill(null);
-      current = 0; marked = new Set();
-      document.getElementById('qTotal').textContent = questions.length;
-      renderQuestion(0); updateNav(); updateScore();
-    }
-
-    function renderQuestion(i){
-      const item = questions[i];
-      qIndex.textContent = i+1; qTotal.textContent = questions.length;
-      sectionName.textContent = item.topic || 'संदर्भ: समग्र';
-      questionText.textContent = item.q;
-      optionsList.innerHTML='';
-      item.options.forEach((opt, idx)=>{
-        const div=document.createElement('label'); div.className='option';
-        const input=document.createElement('input'); input.type='radio'; input.name='opt'+i; input.value=idx;
-        if(userAnswers[i]===idx) input.checked=true;
-        input.onchange=()=>{ userAnswers[i]=idx; updateNav(); updateScore(); };
-        div.appendChild(input); const span=document.createElement('span'); span.textContent=opt; div.appendChild(span); optionsList.appendChild(div);
-      });
-      highlightNav();
-    }
-
-    function updateNav(){
-      qnav.innerHTML='';
-      questions.forEach((_,i)=>{
-        const b=document.createElement('button'); b.className='qbutton'; b.textContent=i+1;
-        if(userAnswers[i]!==null) b.classList.add('answered');
-        if(marked.has(i)) { b.style.border='1px dashed #ffd166'; }
-        b.onclick=()=>{ current=i; renderQuestion(current); };
-        qnav.appendChild(b);
-      });
-      answeredCountEl.textContent = userAnswers.filter(a=>a!==null).length;
-    }
-
-    function highlightNav(){
-      const btns = qnav.querySelectorAll('button'); btns.forEach((b,idx)=>{ b.style.outline = idx===current? '2px solid rgba(6,182,212,0.14)':''; });
-    }
-
-    function updateScore(){ let score=0; questions.forEach((q,i)=>{ if(userAnswers[i]===q.answer) score++; }); scoreNow.textContent = score + ' / ' + questions.length; answeredCountEl.textContent = userAnswers.filter(a=>a!==null).length; }
-
-    function nextQuestion(){ if(current < questions.length-1){ current++; renderQuestion(current); } }
-    function prevQuestion(){ if(current > 0){ current--; renderQuestion(current); } }
-
-    function markForReview(){ if(marked.has(current)) marked.delete(current); else marked.add(current); updateNav(); }
-
-    function startQuiz(){ introArea.classList.add('hidden'); quizArea.classList.remove('hidden'); buildPaper(parseInt(qCountSelect.value)); startTimer(parseInt(timeInput.value || 90)); }
-
-    function submitQuiz(){ if(!confirm('क्या आप अपने उत्तर सबमिट करना चाहती हैं?')) return; stopTimer(); showResults(); }
-
-    function showResults(){
-      let score=0; const rows=[['Q No','Question','Your Answer','Correct Answer','Result','Topic']];
-      questions.forEach((q,i)=>{ const your = userAnswers[i]===null? 'No Answer': q.options[userAnswers[i]]; const correct = q.options[q.answer]; const ok = userAnswers[i]===q.answer; if(ok) score++; rows.push([i+1,q.q,your,correct, ok? 'Correct':'Wrong', q.topic||'']); });
-      resultArea.classList.remove('hidden'); resultArea.innerHTML = `<div class='result'><strong>स्कोर: ${score} / ${questions.length}</strong> — (${Math.round((score/questions.length)*100)}%)</div>`;
-      resultArea.innerHTML += `<div style="margin-top:10px"><button id='showAnswers' class='primary'>उत्तर दिखाएँ</button> <button id='downloadCSV'>CSV डाउनलोड</button></div>`;
-      document.getElementById('showAnswers').onclick = ()=>{ renderReview(); };
-      document.getElementById('downloadCSV').onclick = ()=>{ downloadCSV(rows); };
-    }
-
-    function renderReview(){ quizArea.scrollIntoView({behavior:'smooth'}); resultArea.innerHTML=''; const scoreBox = document.createElement('div'); let score=0; questions.forEach((q,i)=>{ if(userAnswers[i]===q.answer) score++; }); scoreBox.className='result'; scoreBox.innerHTML=`<strong>स्कोर: ${score} / ${questions.length}</strong> — (${Math.round((score/questions.length)*100)}%)`; resultArea.appendChild(scoreBox);
-      questions.forEach((q,i)=>{ const card=document.createElement('div'); card.style.padding='8px'; card.style.borderTop='1px solid rgba(255,255,255,0.03)'; const h=document.createElement('div'); h.style.marginBottom='6px'; h.textContent=(i+1)+'. '+q.q+' ('+ (q.topic||'') +')'; card.appendChild(h); q.options.forEach((opt,idx)=>{ const el=document.createElement('div'); el.textContent=opt; el.style.padding='6px'; el.style.borderRadius='6px'; el.style.marginBottom='6px'; if(idx===q.answer){ el.style.border='1px solid rgba(16,185,129,0.3)'; el.style.background='rgba(16,185,129,0.04)'; }
-        if(userAnswers[i]===idx && userAnswers[i]!==q.answer){ el.style.border='1px solid rgba(239,68,68,0.22)'; el.style.background='rgba(239,68,68,0.04)'; }
-        card.appendChild(el);
-      }); resultArea.appendChild(card); }); }
-
-    function downloadCSV(rows){ const csv = rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n'); const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='ccc-mock-result.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); }
-
-    // Timer
-    function startTimer(minutes){ stopTimer(); remainingSecs = minutes*60; updateTimerDisplay(); timerInterval = setInterval(()=>{ remainingSecs--; if(remainingSecs<=0){ stopTimer(); alert('समय समाप्त! आपका पेपर सबमिट हो रहा है।'); submitQuiz(); } updateTimerDisplay(); },1000); }
-    function updateTimerDisplay(){ const m=Math.floor(remainingSecs/60); const s=remainingSecs%60; timerEl.textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
-    function stopTimer(){ if(timerInterval) clearInterval(timerInterval); timerInterval=null; }
-
-    function resetAll(){ if(confirm('क्या आप टेस्ट रीसेट करना चाहते हैं?')){ stopTimer(); introArea.classList.remove('hidden'); quizArea.classList.add('hidden'); resultArea.classList.add('hidden'); userAnswers=[]; questions=[]; current=0; } }
-
-    // events
-    startBtn.onclick = ()=> startQuiz();
-    nextBtn.onclick = ()=> nextQuestion();
-    prevBtn.onclick = ()=> prevQuestion();
-    markBtn.onclick = ()=> { markForReview(); }
-    submitBtn.onclick = ()=> submitQuiz();
-    pauseBtn.onclick = ()=> { if(timerInterval){ stopTimer(); pauseBtn.textContent='Resume'; } else { startTimer(Math.ceil(remainingSecs/60)); pauseBtn.textContent='Pause'; } };
-    resetBtn.onclick = ()=> resetAll();
-    generateBtn.onclick = ()=> { if(confirm('नया पेपर बनाएं? (यह वर्तमान उत्तर रीसेट करेगा)')) { buildPaper(parseInt(qCountSelect.value)); } };
-    reviewBtn.onclick = ()=> renderReview();
-    downloadBtn.onclick = ()=> { // quick rows
-      let rows = [['Q No','Question','Your Answer','Correct Answer','Result']]; questions.forEach((q,i)=>{ const your = userAnswers[i]===null? 'No Answer' : q.options[userAnswers[i]]; const correct = q.options[q.answer]; const ok = userAnswers[i]===q.answer; rows.push([i+1,q.q,your,correct, ok? 'Correct':'Wrong']); }); downloadCSV(rows);
-    };
-    sampleBtn.onclick = ()=> { alert('Sample प्रश्न बैंक लोड किया गया — Start दबाएँ'); };
-    editBank.onclick = ()=>{
-      const txt = prompt('MASTER_BANK को JSON में बदलें (सामान्य संरचना: [{q:"प्रश्न", options:["A","B","C","D"], answer:1, topic:"..."},...])', JSON.stringify(MASTER_BANK, null, 2));
-      try{ if(!txt) return; const parsed = JSON.parse(txt); if(!Array.isArray(parsed)) throw 'Invalid'; MASTER_BANK.length=0; parsed.forEach(x=>MASTER_BANK.push(x)); alert('प्रश्न बैंक अपडेट हुआ।'); }catch(e){ alert('JSON वैध नहीं है — सही फॉर्मैट डालें।'); }
-    };
-
-    
-    (function(){ document.getElementById('qTotal').textContent = MASTER_BANK.length; buildPaper(100); renderQuestion(0); updateNav(); updateScore(); })();
   </script>
 </body>
 </html>
