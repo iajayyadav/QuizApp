@@ -1,6 +1,6 @@
 const MASTER_BANK = [
    
-[
+
   { "q": "कंप्यूटर का दिमाग किसे कहा जाता है?", "options": ["RAM", "CPU", "Hard Disk", "Keyboard"], "answer": 1, "topic": "Computer Basics" },
   { "q": "CPU का कौन सा भाग गणना करता है?", "options": ["CU", "MU", "ALU", "BIOS"], "answer": 2, "topic": "Computer Basics" },
   { "q": "कंप्यूटर किस संख्या प्रणाली पर काम करता है?", "options": ["Decimal", "Binary", "Octal", "Hexadecimal"], "answer": 1, "topic": "Computer Basics" },
