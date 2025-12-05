@@ -1,112 +1,188 @@
 const MASTER_BANK = [
    
 
-  { "q": "कंप्यूटर का दिमाग किसे कहा जाता है?", "options": ["RAM", "CPU", "Hard Disk", "Keyboard"], "answer": 1, "topic": "Computer Basics" },
-  { "q": "CPU का कौन सा भाग गणना करता है?", "options": ["CU", "MU", "ALU", "BIOS"], "answer": 2, "topic": "Computer Basics" },
-  { "q": "कंप्यूटर किस संख्या प्रणाली पर काम करता है?", "options": ["Decimal", "Binary", "Octal", "Hexadecimal"], "answer": 1, "topic": "Computer Basics" },
-  { "q": "Bit का पूरा नाम क्या है?", "options": ["Binary Text", "Binary Table", "Binary Digit", "Basic Integer"], "answer": 2, "topic": "Computer Basics" },
-  { "q": "निम्न में से कौन सा Output Device है?", "options": ["Keyboard", "Scanner", "Mouse", "Printer"], "answer": 3, "topic": "Computer Basics" },
-  { "q": "सबसे तेज Memory कौन सी है?", "options": ["RAM", "Cache", "ROM", "Hard Disk"], "answer": 1, "topic": "Memory" },
-  { "q": "कंप्यूटर में Temporary memory कौन सी है?", "options": ["ROM", "Flash", "RAM", "Hard Disk"], "answer": 2, "topic": "Memory" },
-  { "q": "निम्न में से कौन सा Storage Device है?", "options": ["Monitor", "Pen Drive", "Keyboard", "Printer"], "answer": 1, "topic": "Storage" },
-  { "q": "Android किसका उदाहरण है?", "options": ["Browser", "App", "Operating System", "Programming Language"], "answer": 2, "topic": "OS" },
-  { "q": "BIOS किसमें Store होता है?", "options": ["RAM", "ROM", "HDD", "CPU"], "answer": 1, "topic": "Computer Basics" },
-  { "q": "Byte में कितने Bit होते हैं?", "options": ["2", "4", "8", "16"], "answer": 2, "topic": "Digital" },
-  { "q": "निम्न में से Pointing device कौन है?", "options": ["Mouse", "Scanner", "Webcam", "Printer"], "answer": 0, "topic": "Computer Basics" },
-  { "q": "सभी डेटा Input कौन लेता है?", "options": ["Hardware", "Software", "Input Device", "Output Device"], "answer": 2, "topic": "Computer Basics" },
-  { "q": "सबसे बड़ा Storage कौन सा है?", "options": ["GB", "TB", "MB", "KB"], "answer": 1, "topic": "Storage" },
-  { "q": "कौन सा System Software है?", "options": ["MS Word", "Photoshop", "Windows", "VLC"], "answer": 2, "topic": "OS" },
-  { "q": "Spreadsheet का उपयोग किसमें होता है?", "options": ["Text Document", "Table/Data", "Presentation", "Notepad"], "answer": 1, "topic": "Calc" },
-  { "q": "OCR किसके लिए उपयोग होता है?", "options": ["Image Compress", "Text Recognition", "Virus Scan", "Print"], "answer": 1, "topic": "Digital Tools" },
-  { "q": "GUI का पूरा नाम क्या है?", "options": ["General User Interface", "Graphical User Interface", "Graphics Unified Input", "Graphical Utility Interface"], "answer": 1, "topic": "OS" },
-  { "q": "Touchpad किसका हिस्सा है?", "options": ["Monitor", "Laptop", "Keyboard", "CPU"], "answer": 1, "topic": "Peripherals" },
-  { "q": "Software का उदाहरण कौन सा है?", "options": ["Mouse", "CPU", "VLC", "Monitor"], "answer": 2, "topic": "Software" },
+ 
+  {
+    "q": "Verb 'Go' (गो) का हिंदी में सही अर्थ क्या है?",
+    "options": ["आना", "जाना", "खाना", "पीना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Come' (कम) का हिंदी में सही अर्थ क्या है?",
+    "options": ["जाना", "आना", "दौड़ना", "चलना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Eat' (ईट) का हिंदी में सही अर्थ क्या है?",
+    "options": ["खाना", "पीना", "सोना", "लिखना"],
+    "answer": 0,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Drink' (ड्रिंक) का हिंदी में सही अर्थ क्या है?",
+    "options": ["खाना", "बोलना", "पीना", "पढ़ना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Run' (रन) का हिंदी में सही अर्थ क्या है?",
+    "options": ["चलना", "दौड़ना", "पढ़ना", "लिखना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Walk' (वॉक) का हिंदी में सही अर्थ क्या है?",
+    "options": ["दौड़ना", "बोलना", "चलना", "सोना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Speak' (स्पीक) का हिंदी में सही अर्थ क्या है?",
+    "options": ["पढ़ना", "लिखना", "सोना", "बोलना"],
+    "answer": 3,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Read' (रीड) का हिंदी में सही अर्थ क्या है?",
+    "options": ["पढ़ना", "लिखना", "सोना", "बोलना"],
+    "answer": 0,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Write' (राइट) का हिंदी में सही अर्थ क्या है?",
+    "options": ["पढ़ना", "लिखना", "सोना", "दौड़ना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Sleep' (स्लीप) का हिंदी में सही अर्थ क्या है?",
+    "options": ["जाना", "आना", "सोना", "खाना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Dance' (डांस) का हिंदी में सही अर्थ क्या है?",
+    "options": ["गाना", "पढ़ाई करना", "नाचना", "सीखना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Sing' (सिंग) का हिंदी में सही अर्थ क्या है?",
+    "options": ["नाचना", "गाना", "सीखना", "मदद करना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Study' (स्टडी) का हिंदी में सही अर्थ क्या है?",
+    "options": ["सीखना", "पढ़ाई करना", "पढ़ाना", "पकड़ना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Teach' (टीच) का हिंदी में सही अर्थ क्या है?",
+    "options": ["सीखना", "पढ़ाई करना", "पढ़ाना", "मदद करना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Learn' (लर्न) का हिंदी में सही अर्थ क्या है?",
+    "options": ["सीखना", "पढ़ाना", "पकड़ना", "धकेलना"],
+    "answer": 0,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Help' (हेल्प) का हिंदी में सही अर्थ क्या है?",
+    "options": ["पकड़ना", "धकेलना", "मदद करना", "खींचना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Hold' (होल्ड) का हिंदी में सही अर्थ क्या है?",
+    "options": ["धकेलना", "पकड़ना/देना", "खींचना", "बुलाना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Push' (पुश) का हिंदी में सही अर्थ क्या है?",
+    "options": ["पकड़ना", "खींचना", "धकेलना", "कूदना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Pull' (पुल) का हिंदी में सही अर्थ क्या है?",
+    "options": ["धकेलना", "खींचना", "कूदना", "खोलना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Call' (कॉल) का हिंदी में सही अर्थ क्या है?",
+    "options": ["कूदना", "बैठना", "बुलाना/कॉल", "खोलना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Jump' (जम्प) का हिंदी में सही अर्थ क्या है?",
+    "options": ["खड़ा होना", "कूदना", "बंद करना", "शुरू करना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Sit' (सिट) का हिंदी में सही अर्थ क्या है?",
+    "options": ["कूदना", "बैठना", "खड़ा होना", "रोकना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Stand' (स्टैंड) का हिंदी में सही अर्थ क्या है?",
+    "options": ["खड़ा होना", "बैठना", "खोलना", "बंद करना"],
+    "answer": 0,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Open' (ओपन) का हिंदी में सही अर्थ क्या है?",
+    "options": ["बंद करना", "शुरू करना", "खोलना", "रोकना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Close' (क्लोज) का हिंदी में सही अर्थ क्या है?",
+    "options": ["खोलना", "शुरू करना", "बंद करना", "मुस्कुराना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Start' (स्टार्ट) का हिंदी में सही अर्थ क्या है?",
+    "options": ["बंद करना", "शुरू करना", "रोकना", "रोना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Stop' (स्टॉप) का हिंदी में सही अर्थ क्या है?",
+    "options": ["शुरू करना", "रोकना", "रोना", "हँसना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Smile' (स्माइल) का हिंदी में सही अर्थ क्या है?",
+    "options": ["रोना", "हँसना", "मुस्कुराना", "रोकना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Cry' (क्राय) का हिंदी में सही अर्थ क्या है?",
+    "options": ["मुस्कुराना", "रोना", "हँसना", "बंद करना"],
+    "answer": 1,
+    "topic": "English Verbs"
+  },
+  {
+    "q": "Verb 'Laugh' (लाफ) का हिंदी में सही अर्थ क्या है?",
+    "options": ["रोना", "मुस्कुराना", "हँसना", "बुलाना"],
+    "answer": 2,
+    "topic": "English Verbs"
+  }
 
-  { "q": "WWW का पूरा नाम क्या है?", "options": ["World Web Wide", "Web World Wide", "World Wide Web", "Wide Web World"], "answer": 2, "topic": "Internet" },
-  { "q": "Internet चलाने के लिए आवश्यक है:", "options": ["Modem", "Keyboard", "Mouse", "Scanner"], "answer": 0, "topic": "Internet" },
-  { "q": "IP Address किसके लिए होता है?", "options": ["Device Identify", "File Store", "Print", "Multimedia"], "answer": 0, "topic": "Networking" },
-  { "q": "कौन सा एक Browser है?", "options": ["Google", "Chrome", "SMS", "WhatsApp"], "answer": 1, "topic": "Internet" },
-  { "q": "HTTP का पूरा नाम क्या है?", "options": ["Hyper Test Transfer Protocol", "Hyper Text Transfer Protocol", "High Transfer Text Protocol", "Hyper Type Text Program"], "answer": 1, "topic": "Internet" },
-  { "q": "LAN कहाँ उपयोग होता है?", "options": ["Worldwide", "Short distance", "City network", "Country network"], "answer": 1, "topic": "Networking" },
-  { "q": "Wi-Fi किस प्रकार की तकनीक है?", "options": ["Wired", "Wireless", "Encrypted", "Optical"], "answer": 1, "topic": "Networking" },
-  { "q": "Broadband का अर्थ:", "options": ["High-speed Internet", "Storage", "OS", "Antivirus"], "answer": 0, "topic": "Internet" },
-  { "q": "Internet का जनक कौन है?", "options": ["Bill Gates", "Tim Berners Lee", "Charles Babbage", "Dennis Ritchie"], "answer": 1, "topic": "Internet" },
-  { "q": "URL कहाँ टाइप करते हैं?", "options": ["Status Bar", "Menu Bar", "Address Bar", "Task Bar"], "answer": 2, "topic": "Internet" },
-
-  { "q": "Cookies का उपयोग किसके लिए होता है?", "options": ["Virus detect", "User track", "Speed increase", "Printing"], "answer": 1, "topic": "Internet" },
-  { "q": "Downloading का अर्थ:", "options": ["Uploading", "Internet से Local मे फाइल लाना", "Local से Internet भेजना", "Copy करना"], "answer": 1, "topic": "Internet" },
-  { "q": "Spam mail क्या है?", "options": ["Important", "Unwanted", "Draft", "Custom"], "answer": 1, "topic": "Email" },
-  { "q": "Cloud Storage का उदाहरण:", "options": ["Google Drive", "SSD", "Pen Drive", "DVD"], "answer": 0, "topic": "Digital" },
-  { "q": "Modem का कार्य:", "options": ["Store Data", "Signal Convert", "Print", "Power On"], "answer": 1, "topic": "Networking" },
-  { "q": "Online form भरने के लिए क्या आवश्यक है?", "options": ["Printer", "Browser", "CPU", "Speaker"], "answer": 1, "topic": "Internet" },
-  { "q": "Ctrl + T का उपयोग?", "options": ["Tab Close", "New Tab", "Window Close", "Refresh"], "answer": 1, "topic": "Internet" },
-  { "q": "ISP कौन देता है?", "options": ["BSNL", "Bank", "School", "Hospital"], "answer": 0, "topic": "Internet" },
-  { "q": "Incognito mode का उपयोग?", "options": ["Private browsing", "Fast browsing", "Games", "Virus Scan"], "answer": 0, "topic": "Internet" },
-  { "q": "Router का कार्य?", "options": ["Data Routing", "Print", "Storage", "Video Editing"], "answer": 0, "topic": "Networking" },
-
-  { "q": "CC का अर्थ क्या है?", "options": ["Carbon Copy", "Central Copy", "Custom Copy", "Clean Copy"], "answer": 0, "topic": "Email" },
-  { "q": "BCC का अर्थ क्या है?", "options": ["Blind Carbon Copy", "Basic CC", "Backup Copy", "Business CC"], "answer": 0, "topic": "Email" },
-  { "q": "Draft क्या होता है?", "options": ["Sent Mail", "Saved but unsent mail", "Spam Mail", "Deleted Mail"], "answer": 1, "topic": "Email" },
-  { "q": "Attachment किससे दिखता है?", "options": ["Paper Clip Icon", "Star Icon", "Phone Icon", "Camera Icon"], "answer": 0, "topic": "Email" },
-  { "q": "SMTP का उपयोग?", "options": ["Email Send", "Email Receive", "Print", "Backup"], "answer": 0, "topic": "Email" },
-  { "q": "IMAP का उपयोग?", "options": ["Email Receive", "Email Send", "Download Speed", "Browsing"], "answer": 0, "topic": "Email" },
-  { "q": "@ का अर्थ?", "options": ["Separator", "Dot", "Space", "Symbol"], "answer": 0, "topic": "Email" },
-  { "q": "Subject क्या है?", "options": ["Mail Title", "Attachment", "Footer", "Link"], "answer": 0, "topic": "Email" },
-  { "q": "Spam में क्या होता है?", "options": ["Unwanted mail", "Important mail", "Draft mail", "Trash"], "answer": 0, "topic": "Email" },
-  { "q": "POP का उपयोग?", "options": ["Email Download", "Send Mail", "Copy Mail", "Print Mail"], "answer": 0, "topic": "Email" },
-
-  { "q": "UPI का फुल फॉर्म क्या है?", "options": ["Unified Payment Interface", "Universal Payment ID", "Unique Payment Integration", "User Payment Interface"], "answer": 0, "topic": "Banking" },
-  { "q": "AEPS किससे linked है?", "options": ["Aadhaar", "PAN", "Voter ID", "DL"], "answer": 0, "topic": "Banking" },
-  { "q": "NEFT कब चलता है?", "options": ["Banking Hours", "24x7", "Sunday Only", "Night Only"], "answer": 0, "topic": "Banking" },
-  { "q": "ATM का मतलब?", "options": ["Automated Teller Machine", "Automatic Transfer Machine", "Auto Travel Machine", "Auto Teller Mode"], "answer": 0, "topic": "Banking" },
-  { "q": "Debit Card कहाँ उपयोग होता है?", "options": ["ATM", "POS", "Online", "All of these"], "answer": 3, "topic": "Banking" },
-  { "q": "BHIM ऐप किसने बनाया?", "options": ["RBI", "NPCI", "Google", "Microsoft"], "answer": 1, "topic": "Banking" },
-  { "q": "QR Code क्या है?", "options": ["2D Barcode", "3D Barcode", "NFC", "Bluetooth"], "answer": 0, "topic": "Digital" },
-  { "q": "IFSC Code का उपयोग?", "options": ["Bank Identify", "ATM PIN", "Aadhaar Update", "Internet Speed"], "answer": 0, "topic": "Banking" },
-  { "q": "OTP कहाँ आता है?", "options": ["Mobile", "CPU", "Printer", "Monitor"], "answer": 0, "topic": "Security" },
-  { "q": "Net Banking login के लिए?", "options": ["User ID + Password", "Mobile Only", "ATM Card", "Email ID"], "answer": 0, "topic": "Banking" },
-
-  { "q": "DigiLocker किसके लिए?", "options": ["Digital Documents", "Music", "Videos", "Photos"], "answer": 0, "topic": "Digital India" },
-  { "q": "UMANG App किसके लिए?", "options": ["Govt Services", "Games", "Editing", "Shopping"], "answer": 0, "topic": "Digital India" },
-  { "q": "Aadhaar किसका प्रमाण है?", "options": ["Identity", "Address Only", "Mobile", "Bank"], "answer": 0, "topic": "Aadhaar" },
-  { "q": "PAN Card का उपयोग?", "options": ["Income Tax", "Driving", "Voting", "Aadhaar"], "answer": 0, "topic": "Banking" },
-  { "q": "e-KYC किसके लिए?", "options": ["Aadhaar Verification", "Email Setup", "Phone Backup", "Device Unlock"], "answer": 0, "topic": "Security" },
-  { "q": "m-Aadhaar ऐप किसका है?", "options": ["UIDAI", "NPCI", "RBI", "BSNL"], "answer": 0, "topic": "Aadhaar" },
-  { "q": "MyGov प्लेटफॉर्म किसका है?", "options": ["Government", "Private", "Bank", "School"], "answer": 0, "topic": "Digital India" },
-  { "q": "NPCI क्या है?", "options": ["Payment System Organisation", "Police Portal", "Bank", "UPI App"], "answer": 0, "topic": "Banking" },
-  { "q": "BharatNet किससे जुड़ा?", "options": ["Rural Broadband", "Railways", "Postal", "Security"], "answer": 0, "topic": "Digital India" },
-  { "q": "e-Sign किसके लिए?", "options": ["Digital Signature", "Music", "Photo", "Video"], "answer": 0, "topic": "Digital India" },
-
-  { "q": "Writer का extension क्या है?", "options": [".odt", ".ods", ".odp", ".odg"], "answer": 0, "topic": "Writer" },
-  { "q": "Bold करने की कुंजी?", "options": ["Ctrl + B", "Ctrl + C", "Ctrl + E", "Ctrl + P"], "answer": 0, "topic": "Writer" },
-  { "q": "Undo?", "options": ["Ctrl + Y", "Ctrl + Z", "Ctrl + U", "Ctrl + P"], "answer": 1, "topic": "Writer" },
-  { "q": "Redo?", "options": ["Ctrl + Y", "Ctrl + B", "Ctrl + A", "Ctrl + S"], "answer": 0, "topic": "Writer" },
-  { "q": "Italic?", "options": ["Ctrl + I", "Ctrl + U", "Ctrl + A", "Ctrl + L"], "answer": 0, "topic": "Writer" },
-  { "q": "Copy?", "options": ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + A"], "answer": 0, "topic": "Writer" },
-  { "q": "Paste?", "options": ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + B"], "answer": 2, "topic": "Writer" },
-  { "q": "Cut?", "options": ["Ctrl + X", "Ctrl + E", "Ctrl + R", "Ctrl + A"], "answer": 0, "topic": "Writer" },
-  { "q": "Find?", "options": ["Ctrl + F", "Ctrl + H", "Ctrl + J", "Ctrl + M"], "answer": 0, "topic": "Writer" },
-  { "q": "Replace?", "options": ["Ctrl + F", "Ctrl + H", "Ctrl + R", "Ctrl + P"], "answer": 1, "topic": "Writer" },
-  { "q": "Word Count कहाँ से?", "options": ["Tools → Word Count", "File → Info", "Insert → Tools", "Format → Count"], "answer": 0, "topic": "Writer" },
-  { "q": "Calc Extension?", "options": [".odt", ".ods", ".odp", ".odg"], "answer": 1, "topic": "Calc" },
-  { "q": "Sheet जोड़ने की कुंजी?", "options": ["Shift + F11", "F12", "Ctrl + N", "Ctrl + M"], "answer": 0, "topic": "Calc" },
-  { "q": "Formula किससे शुरू होता है?", "options": ["?", "=", "+", "%"], "answer": 1, "topic": "Calc" },
-  { "q": "SUM formula?", "options": ["=SUM()", "=TOTAL()", "=ADD()", "=COUNT()"], "answer": 0, "topic": "Calc" },
-  { "q": "Impress extension?", "options": [".odp", ".odt", ".ods", ".odg"], "answer": 0, "topic": "Impress" },
-  { "q": "Slide Show?", "options": ["F5", "F2", "Ctrl + F5", "Shift + F5"], "answer": 0, "topic": "Impress" },
-  { "q": "New Slide?", "options": ["Ctrl + M", "Ctrl + N", "Ctrl + P", "Ctrl + S"], "answer": 0, "topic": "Impress" },
-  { "q": "Image Insert?", "options": ["Insert → Image", "Edit → Insert", "File → Image", "Tools → Image"], "answer": 0, "topic": "Impress" },
-  { "q": "LibreOffice किसने बनाया?", "options": ["Microsoft", "The Document Foundation", "Oracle", "Google"], "answer": 1, "topic": "LibreOffice" },
-  { "q": "Page Break?", "options": ["Ctrl + Enter", "Ctrl + Shift + P", "Ctrl + B", "Ctrl + K"], "answer": 0, "topic": "Writer" },
-  { "q": "Save As?", "options": ["Ctrl + Shift + S", "Ctrl + B", "Ctrl + P", "Ctrl + O"], "answer": 0, "topic": "Writer" },
-  { "q": "Spell Check?", "options": ["F7", "F5", "Ctrl + J", "Shift + F7"], "answer": 0, "topic": "Writer" },
-  { "q": "Print?", "options": ["Ctrl + P", "Ctrl + L", "Ctrl + M", "Ctrl + D"], "answer": 0, "topic": "Writer" },
-  { "q": "Center Alignment?", "options": ["Ctrl + E", "Ctrl + L", "Ctrl + R", "Ctrl + B"], "answer": 0, "topic": "Writer" },
-  { "q": "Justify?", "options": ["Ctrl + J", "Ctrl + R", "Ctrl + E", "Ctrl + L"], "answer": 0, "topic": "Writer" },
-  { "q": "Bullet List?", "options": ["F12", "Shift + F12", "Ctrl + B", "Ctrl + 1"], "answer": 0, "topic": "Writer" },
-  { "q": "Header कहाँ से?", "options": ["Insert → Header", "View → Header", "File → Header", "Tools → Header"], "answer": 0, "topic": "Writer" },
-  { "q": "Footer कहाँ से?", "options": ["Insert → Footer", "Tools → Footer", "Format → Footer", "File → Footer"], "answer": 0, "topic": "Writer" },
-  { "q": "Freeze Panes?", "options": ["View → Freeze Cells", "Insert → Freeze", "Format → Freeze", "Tools → Lock"], "answer": 0, "topic": "Calc" }
 ];
 
 
